@@ -1,0 +1,7 @@
+.editorconfig
+.gcloudignore
+.git
+.gitignore
+.tool-versions
+cmd
+README.md
