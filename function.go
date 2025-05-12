@@ -17,7 +17,6 @@ import (
 )
 
 var (
-	client        *pubsub.Client
 	topic         *pubsub.Topic
 	signingSecret = os.Getenv("SLACK_SIGNING_SECRET")
 )
