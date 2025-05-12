@@ -85,6 +85,12 @@ func slackEventMediator(w http.ResponseWriter, r *http.Request) {
 
 	res := topic.Publish(ctx, &pubsub.Message{
 		Data: body,
+		Attributes: map[string]string{
+			"event_type":    eventsAPIEvent.Type,
+			"team_id":       eventsAPIEvent.TeamID,
+			"api_app_id":    eventsAPIEvent.APIAppID,
+			"enterprise_id": eventsAPIEvent.EnterpriseID,
+		},
 	})
 	if _, err := res.Get(ctx); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
